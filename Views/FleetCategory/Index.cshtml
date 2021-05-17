@@ -1,0 +1,152 @@
+﻿@*@model IEnumerable<ESCOM_FLEET_SYSTEM.Models.FleetCategory>*@
+@model PaginatedList<ESCOM_FLEET_SYSTEM.Models.FleetCategory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New A FLEET</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Tag Number: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"] " placeholder="Search" />
+            <input type="submit" value="Search" class="bg-dark btn btn-outline-success btn-sm my-0" /> |
+            @*<a asp-action="Index">Back to Full List</a>*@
+        </p>
+    </div>
+</form>
+<table class="table table-sm table-active text-sm">
+    <thead class="thead thead-sm text-sm thead-dark  ">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.NumberPlate)*@
+                No Plate
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Model)*@
+                Model
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Year)*@
+                Year
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Cost)*@
+                Cost
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.TagNumber)*@
+                Tag
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Mileage)*@
+                Mileage
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.COFNumber)*@
+                COF
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.InsuranceNumber)*@
+                Insurance
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Station)*@
+                Station
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.LocationName)*@
+                Location
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DistrictName)*@
+                District
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.RegionName)*@
+                Region
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DepartmentName)*@
+                Department
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberPlate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TagNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mileage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COFNumber.COFNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InsuranceNumber.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Station.StationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationName.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DistrictName.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegionName.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartmentName.Comment)
+                </td>
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.FleetCategoryId">Edit</a> |
+        <a asp-action="Details" asp-route-id="@item.FleetCategoryId">Details</a> |
+        <a asp-action="Delete" asp-route-id="@item.FleetCategoryId">Delete</a>*@
+                    <a class="btn btn-outline-success btn-rounded btn-sm my-0" asp-action="Edit" asp-route-id="@item.FleetCategoryId"><i class="fas fa-edit"></i></a> |
+                    @*<a class="btn btn-outline-info btn-rounded btn-sm my-0" asp-action="Details" asp-route-id="@item.COFId"><i class="fas fa-info-circle"></i></a> |*@
+                    <a class="btn btn-outline-danger btn-rounded btn-sm my-0" asp-action="Delete" asp-route-id="@item.FleetCategoryId"><i class="fas fa-trash-alt"></i></a>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class=" bg-light btn btn-sm btn-outline-success @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="bg-light btn  btn-sm btn-outline-success @nextDisabled">
+    Next
+</a>

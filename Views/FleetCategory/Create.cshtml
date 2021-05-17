@@ -1,0 +1,187 @@
+﻿@model ESCOM_FLEET_SYSTEM.Models.FleetCategory
+
+@{
+    ViewData["Title"] = "Create";
+}
+@*<h1>Create</h1>
+
+    <h4>FleetCategory</h4>
+    <hr />*@
+<div class=" bg-success clear-loading  spinner-border"><i class="fa fa-envelope"></i> Create</div>
+<form class="font-weight-bold">
+    <div>
+        <a asp-action="Index" class="bg-success btn btn-outline-warning btn-rounded btn-sm my-0">  Back to List<i class="fas fa-undo"></i></a>
+    </div>
+</form>
+@*<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NumberPlate" class="control-label"></label>
+                <input asp-for="NumberPlate" class="form-control" />
+                <span asp-validation-for="NumberPlate" class="text-danger"></span>*@
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @*<div class="form-group row">*@
+    <div class="form-row ">
+        <div class="form-group col-md-6">
+            @*<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">NumberPlate</label>*@
+            @*<div class="col-sm-10">*@
+            <input asp-for="NumberPlate" class="form-control form-control-sm" id="colFormLabel" placeholder="Number Plate">
+            <span asp-validation-for="NumberPlate" class="text-danger"></span>
+            @*</div>*@
+        </div>
+        @*<div class="form-group">
+            <label asp-for="Model" class="control-label"></label>
+            <input asp-for="Model" class="form-control" />
+            <span asp-validation-for="Model" class="text-danger"></span>*@
+        <div class="form-group col-md-6">
+            @*<div class="form-group row">*@
+            @*<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">Model</label>*@
+            @*<div class="col-sm-10">*@
+            <input asp-for="Model" class="form-control form-control-sm" id="colFormLabel" placeholder="Model">
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+    </div>
+    @*<div class="form-group">
+        <label asp-for="Year" class="control-label"></label>
+        <input asp-for="Year" class="form-control" />
+        <span asp-validation-for="Year" class="text-danger"></span>*@
+    <div class="form-group">
+        @*<div class="form-group row">*@
+        <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">Year</label>
+        @*<div class="col-sm-10">*@
+        <input asp-for="Year" class="form-control form-control-sm" id="colFormLabel" placeholder="Year">
+        <span asp-validation-for="Year" class="text-danger"></span>
+        @*</div>*@
+    </div>
+    @*<div class="form-group">
+        <label asp-for="Cost" class="control-label"></label>
+        <input asp-for="Cost" class="form-control" />
+        <span asp-validation-for="Cost" class="text-danger"></span>*@
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            @*<div class="form-group row">*@
+            @*<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">Cost</label>*@
+            @*<div class="col-sm-10">*@
+            <input asp-for="Cost" class="form-control form-control-sm" id="colFormLabel" placeholder="Cost">
+            <span asp-validation-for="Cost" class="text-danger"></span>
+            @*</div>*@
+        </div>
+        @*<div class="form-group">
+            <label asp-for="TagNumber" class="control-label"></label>
+            <input asp-for="TagNumber" class="form-control" />
+            <span asp-validation-for="TagNumber" class="text-danger"></span>*@
+        <div class="form-group col-md-4">
+            @*<div class="form-group row">*@
+            @*<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">TagNumber</label>*@
+            @*<div class="col-sm-10">*@
+            <input asp-for="TagNumber" class="form-control form-control-sm" id="colFormLabel" placeholder="Tag Number">
+            <span asp-validation-for="TagNumber" class="text-danger"></span>
+            @*</div>*@
+        </div>
+        @*<div class="form-group">
+            <label asp-for="Mileage" class="control-label"></label>
+            <input asp-for="Mileage" class="form-control" />
+            <span asp-validation-for="Mileage" class="text-danger"></span>*@
+        <div class="form-group col-md-4">
+            @*<div class="form-group row">*@
+            @*<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">Mileage</label>*@
+            @*<div class="col-sm-10">*@
+            <input asp-for="Mileage" class="form-control form-control-sm" id="colFormLabel" placeholder="Mileage">
+            <span asp-validation-for="Mileage" class="text-danger"></span>
+        </div>
+    </div>
+    @*<div class="form-group">
+        <label asp-for="COFId" class="control-label"></label>
+        <select asp-for="COFId" class="form-control" asp-items="ViewBag.COFId"></select>*@
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            @*<div class="form-group row">*@
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">COF</label>
+            @*<div class="col-sm-10">*@
+            <select asp-for="COFId" class="form-control form-control-sm" id="colFormLabel" asp-items="ViewBag.COFId"> </select>
+            @*<select asp-for="COFId" name="simpleSelect2" class="form-control" id="simpleSelect2"   asp-items="ViewBag.COFId"> </select>*@
+                @*<span asp-validation-for="NumberPlate" class="text-danger"></span>*@
+                @*</div>*@
+        </div>
+        @*<div class="form-group">
+            <label asp-for="InsuranceId" class="control-label"></label>
+            <select asp-for="InsuranceId" class="form-control" asp-items="ViewBag.InsuranceId"></select>*@
+        <div class="form-group col-md-4">
+            @*<div class="form-group row">*@
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">Insurance</label>
+            @*<div class="col-sm-10">*@
+            <select asp-for="InsuranceId" class="form-control form-control-sm" id="colFormLabel" asp-items="ViewBag.InsuranceId"> </select>
+            @*</div>*@
+        </div>
+        @*<div class="form-group">
+            <label asp-for="StationId" class="control-label"></label>
+            <select asp-for="StationId" class="form-control" asp-items="ViewBag.StationId"></select>*@
+        <div class="form-group col-md-4">
+            @*<div class="form-group row">*@
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">Station</label>
+            @*<div class="col-sm-10">*@
+            <select asp-for="StationId" class="form-control form-control-sm" id="colFormLabel" asp-items="ViewBag.StationId"> </select>
+        </div>
+    </div>
+    @*<div class="form-group">
+        <label asp-for="LocationId" class="control-label"></label>
+        <select asp-for="LocationId" class="form-control" asp-items="ViewBag.LocationId"></select>*@
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @*<div class="form-group row">*@
+
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">Location</label>
+            @*<div class="col-sm-10">*@
+            <select asp-for="LocationId" class="form-control form-control-sm" id="colFormLabel" asp-items="ViewBag.LocationId"> </select>
+            @*</div>*@
+        </div>
+        @*<div class="form-group">
+            <label asp-for="DistrictId" class="control-label"></label>
+            <select asp-for="DistrictId" class="form-control" asp-items="ViewBag.DistrictId"></select>*@
+        <div class="form-group col-md-6">
+            @*<div class="form-group row">*@
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">District</label>
+            @*<div class="col-sm-10">*@
+            <select asp-for="DistrictId" class="form-control form-control-sm" id="colFormLabel" asp-items="ViewBag.DistrictId"> </select>
+        </div>
+    </div>
+    @*<div class="form-group">
+        <label asp-for="RegionId" class="control-label"></label>
+        <select asp-for="RegionId" class="form-control" asp-items="ViewBag.RegionId"></select>*@
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @*<div class="form-group row">*@
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">Region</label>
+            @*<div class="col-sm-10">*@
+            <select asp-for="RegionId" class="form-control form-control-sm" id="colFormLabel" asp-items="ViewBag.RegionId"> </select>
+            @*</div>*@
+        </div>
+        @*<div class="form-group">
+            <label asp-for="DepartmentId" class="control-label"></label>
+            <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>*@
+        <div class="form-group col-md-6">
+            @*<div class="form-group row">*@
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-sm">Department</label>
+            @*<div class="col-sm-10">*@
+            <select asp-for="DepartmentId" class="form-control form-control-sm" id="colFormLabel" asp-items="ViewBag.DepartmentId"> </select>
+            @*</div>*@
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Create " class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+@*</div>
+    </div>*@
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

@@ -1,0 +1,79 @@
+﻿@*@model IEnumerable<ESCOM_FLEET_SYSTEM.Models.Grounded>*@
+@model PaginatedList<ESCOM_FLEET_SYSTEM.Models.Grounded>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add grounded Vehicle</a>
+</p>
+<table class="table table-sm">
+    <thead class="table-light">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.NumberPlate)*@
+                Number Plate
+
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Department)*@
+                Department
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Station)*@
+                Station
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Remarks)*@
+                Remarks
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberPlate.Mileage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Station.StationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+
+                    <a class="btn btn-outline-success btn-rounded btn-sm my-0" asp-action="Edit" asp-route-id="@item.GroundedId"><i class="fas fa-edit"></i>UPDATE</a> |
+                    <a class="btn btn-outline-info btn-rounded btn-sm my-0" asp-action="Details" asp-route-id="@item.GroundedId"><i class="fas fa-info-circle"></i>DETAILS</a> |
+                    <a class="btn btn-outline-danger btn-rounded btn-sm my-0" asp-action="Delete" asp-route-id="@item.GroundedId"><i class="fas fa-trash-alt"></i>DELETE</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class=" bg-light btn btn-sm btn-outline-success @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="bg-light btn btn-sm btn-outline-success @nextDisabled">
+    Next
+</a>

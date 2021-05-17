@@ -1,0 +1,44 @@
+﻿@*@model IEnumerable<ESCOM_FLEET_SYSTEM.Models.Region>*@
+@model PaginatedList<ESCOM_FLEET_SYSTEM.Models.Region>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New Region</a>
+</p>
+<table class="table table-sm table-striped">
+    <thead class="thead-sm text thead-dark">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.RegionName)*@
+                RegionName
+
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Comment)*@
+                Comment
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    <a class="btn btn-outline-success btn-rounded btn-sm my-0" asp-action="Edit" asp-route-id="@item.RegionId"><i class="fas fa-edit"></i>UPDATE</a> |
+                    <a class="btn btn-outline-info btn-rounded btn-sm my-0" asp-action="Details" asp-route-id="@item.RegionId"><i class="fas fa-info-circle"></i>DETAILS</a> |
+                    <a class="btn btn-outline-danger btn-rounded btn-sm my-0" asp-action="Delete" asp-route-id="@item.RegionId"><i class="fas fa-trash-alt"></i>DELETE</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
